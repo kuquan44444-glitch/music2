@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import { useInfiniteQuery } from '@tanstack/react-query'
 import { useNotifications } from '@/features/notifications/hooks/useNotifications'
 import { NotificationList } from '@/features/notifications/components/NotificationList'
 import { NotificationWithSender } from '@/features/notifications/actions/notifications'
