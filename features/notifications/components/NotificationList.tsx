@@ -11,7 +11,7 @@ import { useNotifications, useMarkAsRead, useMarkAllAsRead } from '../hooks/useN
 import { NotificationWithSender } from '../actions/notifications'
 
 interface NotificationListProps {
-  notifications: any[]
+  notifications: any[];
 }
 
 export function NotificationList({ notifications }: NotificationListProps) {
@@ -149,7 +149,7 @@ export function NotificationItem({ notification, onClick }: NotificationItemProp
             {getIcon()}
           </div>
         </div>
-        
+
         <div className="flex-1 min-w-0">
           <p className="text-sm">
             {getMessage()}
@@ -158,7 +158,7 @@ export function NotificationItem({ notification, onClick }: NotificationItemProp
             {formatTimeAgo(notification.created_at)}
           </p>
         </div>
-        
+
         {!notification.is_read && (
           <div className="w-2 h-2 rounded-full bg-primary shrink-0 mt-2" />
         )}
