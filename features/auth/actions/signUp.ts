@@ -1,3 +1,5 @@
+'use server'
+
 import { createClient } from '@/lib/supabase/server'
 import { signUpSchema, SignUpInput } from '@/lib/validations/auth.schema'
 
@@ -14,7 +16,7 @@ export async function signUp(input: SignUpInput) {
         full_name: validatedData.fullName,
       },
     },
-  })
+  }) as { data: { user: { id: string } | null }; error: { message: string } | null }
 
   if (error) {
     throw new Error(error.message)
@@ -29,7 +31,7 @@ export async function signUp(input: SignUpInput) {
         id: data.user.id,
         username,
         full_name: validatedData.fullName,
-      })
+      } as any)
 
     if (profileError) {
       console.error('Error creating profile:', profileError)

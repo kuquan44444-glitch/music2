@@ -1,3 +1,5 @@
+'use server'
+
 import { createClient } from '@/lib/supabase/server'
 import { forgotPasswordSchema, ForgotPasswordInput } from '@/lib/validations/auth.schema'
 

@@ -1,5 +1,8 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
+import { Database } from '@/types/database.types'
+
+export const runtime = 'nodejs'
 
 const publicRoutes = ['/auth/signin', '/auth/signup', '/auth/forgot-password']
 const protectedRoutes = ['/', '/search', '/create', '/messages', '/profile', '/settings', '/saved', '/hashtags']
@@ -9,7 +12,7 @@ export async function updateSession(request: NextRequest) {
     request,
   })
 
-  const supabase = createServerClient(
+  const supabase = createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {

@@ -1,3 +1,5 @@
+'use server'
+
 import { createClient } from '@/lib/supabase/server'
 import { Profile } from '@/types/database.types'
 

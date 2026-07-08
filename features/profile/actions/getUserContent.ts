@@ -1,3 +1,5 @@
+'use server'
+
 import { createClient } from '@/lib/supabase/server'
 
 export async function getUserPosts(userId: string, visibility?: 'public' | 'private', cursor?: string, limit = 10) {

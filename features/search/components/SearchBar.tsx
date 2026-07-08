@@ -2,10 +2,8 @@
 
 import * as React from 'react'
 import { Search as SearchIcon, X, Users, FileText, Hash, Loader2 } from 'lucide-react'
-import { cn } from '@/lib/utils'
 import { Input } from '@/components/ui/Input'
 import { Avatar } from '@/components/ui/Avatar'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/Tabs'
 import { useSearch } from '../hooks/useSearch'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -31,7 +29,7 @@ export function SearchBar({ defaultQuery = '', autoFocus = false, onSearch }: Se
       <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
       <Input
         type="search"
-        placeholder="Tìm kiếm người dùng, bài viết, hashtag..."
+        placeholder="Tim kiem nguoi dung, bai viet, hashtag..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         className="pl-10 pr-10"
@@ -69,7 +67,7 @@ export function SearchResults({ query, type = 'all' }: SearchResultsProps) {
     return (
       <div className="flex flex-col items-center justify-center py-12 text-center">
         <SearchIcon className="h-12 w-12 text-muted-foreground mb-4" />
-        <p className="text-muted-foreground">Không tìm thấy kết quả cho "{query}"</p>
+        <p className="text-muted-foreground">Khong tim thay ket qua</p>
       </div>
     )
   }
@@ -80,10 +78,10 @@ export function SearchResults({ query, type = 'all' }: SearchResultsProps) {
         <section>
           <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
             <Users className="h-5 w-5" />
-            Người dùng
+            Nguoi dung
           </h3>
           {users.length === 0 ? (
-            <p className="text-muted-foreground text-sm">Không có người dùng phù hợp</p>
+            <p className="text-muted-foreground text-sm">Khong co nguoi dung phu hop</p>
           ) : (
             <div className="space-y-2">
               {users.map((user) => (
@@ -102,16 +100,16 @@ export function SearchResults({ query, type = 'all' }: SearchResultsProps) {
             </div>
           )}
         </section>
-      )}
+      ) : null}
 
       {type === 'all' || type === 'posts' ? (
         <section>
           <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
             <FileText className="h-5 w-5" />
-            Bài viết
+            Bai viet
           </h3>
           {posts.length === 0 ? (
-            <p className="text-muted-foreground text-sm">Không có bài viết phù hợp</p>
+            <p className="text-muted-foreground text-sm">Khong co bai viet phu hop</p>
           ) : (
             <div className="space-y-2">
               {posts.map((post) => (
@@ -150,7 +148,7 @@ export function SearchResults({ query, type = 'all' }: SearchResultsProps) {
             </div>
           )}
         </section>
-      )}
+      ) : null}
 
       {type === 'all' || type === 'hashtags' ? (
         <section>
@@ -159,7 +157,7 @@ export function SearchResults({ query, type = 'all' }: SearchResultsProps) {
             Hashtags
           </h3>
           {hashtags.length === 0 ? (
-            <p className="text-muted-foreground text-sm">Không có hashtag phù hợp</p>
+            <p className="text-muted-foreground text-sm">Khong co hashtag phu hop</p>
           ) : (
             <div className="space-y-2">
               {hashtags.map((tag) => (
@@ -173,14 +171,14 @@ export function SearchResults({ query, type = 'all' }: SearchResultsProps) {
                   </div>
                   <div className="flex-1">
                     <p className="font-semibold">#{tag.name}</p>
-                    <p className="text-sm text-muted-foreground">{tag.post_count} bài viết</p>
+                    <p className="text-sm text-muted-foreground">{tag.post_count} bai viet</p>
                   </div>
                 </Link>
               ))}
             </div>
           )}
         </section>
-      )}
+      ) : null}
     </div>
   )
 }

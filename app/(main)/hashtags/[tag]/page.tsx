@@ -27,7 +27,7 @@ export default function HashtagPage() {
         .from('hashtags')
         .select('id')
         .eq('name', tag.toLowerCase())
-        .single()
+        .single() as { data: { id: string } | null }
 
       if (!hashtag) return { data: [], nextCursor: undefined }
 
@@ -36,7 +36,7 @@ export default function HashtagPage() {
         .select('post_id, created_at')
         .eq('hashtag_id', hashtag.id)
         .order('created_at', { ascending: false })
-        .limit(11)
+        .limit(11) as { data: { post_id: string; created_at: string }[] | null }
 
       if (!postHashtags || postHashtags.length === 0) {
         return { data: [], nextCursor: undefined }

@@ -12,7 +12,7 @@ export default function MessagesPage() {
   const conversationId = params?.id as string | undefined
   const { user } = useAuth()
   const { data: conversations, isLoading } = useConversations(user?.id)
-  const [selectedConversation, setSelectedConversation] = React.useState<typeof conversations>[0] | null>(null)
+  const [selectedConversation, setSelectedConversation] = React.useState<NonNullable<typeof conversations>[number] | null>(null)
 
   React.useEffect(() => {
     if (conversationId && conversations) {

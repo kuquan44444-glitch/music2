@@ -1,3 +1,3 @@
-export { BottomNav } from './BottomNav'
-export { Sidebar } from './Sidebar'
-export { MainLayout } from './MainLayout'
+export { BottomNav } from './components/BottomNav'
+export { Sidebar } from './components/Sidebar'
+export { MainLayout } from './components/MainLayout'

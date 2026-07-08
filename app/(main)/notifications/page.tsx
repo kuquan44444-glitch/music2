@@ -4,6 +4,7 @@ import * as React from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { useNotifications } from '@/features/notifications/hooks/useNotifications'
 import { NotificationList } from '@/features/notifications/components/NotificationList'
+import { NotificationWithSender } from '@/features/notifications/actions/notifications'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { Bell } from 'lucide-react'
@@ -19,7 +20,7 @@ export default function NotificationsPage() {
     isLoading,
   } = useNotifications(user?.id)
 
-  const notifications = data?.pages.flatMap((page) => page.data) || []
+  const notifications = data?.pages.flatMap((page: { data: NotificationWithSender[], nextCursor?: string }) => page.data) || []
 
   if (isLoading) {
     return (

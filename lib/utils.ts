@@ -1,15 +1,13 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { formatDistanceToNow } from 'date-fns'
-import { vi, enUS } from 'date-fns'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
 export function formatTimeAgo(date: string | Date, locale: 'vi' | 'en' = 'vi'): string {
-  const dateFnsLocale = locale === 'vi' ? vi : enUS
-  return formatDistanceToNow(new Date(date), { addSuffix: true, locale: dateFnsLocale })
+  return formatDistanceToNow(new Date(date), { addSuffix: true })
 }
 
 export function parseHashtags(text: string): string[] {

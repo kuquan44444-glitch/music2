@@ -1,3 +1,5 @@
+'use server'
+
 import { createClient } from '@/lib/supabase/server'
 import { createCommentSchema, CreateCommentInput } from '@/lib/validations/post.schema'
 

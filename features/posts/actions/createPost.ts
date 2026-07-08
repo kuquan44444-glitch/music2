@@ -1,3 +1,5 @@
+'use server'
+
 import { createClient } from '@/lib/supabase/server'
 import { createPostSchema, CreatePostInput } from '@/lib/validations/post.schema'
 import { parseHashtags } from '@/lib/utils'

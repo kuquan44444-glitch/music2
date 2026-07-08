@@ -2,15 +2,16 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Heart, MessageCircle, UserPlus, UserCheck, Share2, Bell, Check, CheckCheck } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Heart, MessageCircle, UserPlus, UserCheck, Share2, Bell, CheckCheck } from 'lucide-react'
 import { cn, formatTimeAgo } from '@/lib/utils'
 import { Avatar } from '@/components/ui/Avatar'
 import { Button } from '@/components/ui/Button'
 import { useNotifications, useMarkAsRead, useMarkAllAsRead } from '../hooks/useNotifications'
+import { NotificationWithSender } from '../actions/notifications'
 
 interface NotificationListProps {
-  notifications: ReturnType<typeof useNotifications>['data']?.pages.flatMap((page) => page.data) || []
+  notifications: NotificationWithSender[]
 }
 
 export function NotificationList({ notifications }: NotificationListProps) {

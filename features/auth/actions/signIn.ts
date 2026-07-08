@@ -1,3 +1,5 @@
+'use server'
+
 import { createClient } from '@/lib/supabase/server'
 import { signInSchema, SignInInput } from '@/lib/validations/auth.schema'
 

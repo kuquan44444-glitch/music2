@@ -61,10 +61,11 @@ export function Dropdown({ trigger, children, align = 'right', className }: Drop
           >
             {React.Children.map(children, (child) => {
               if (React.isValidElement(child)) {
-                return React.cloneElement(child as React.ReactElement<{ onClick?: () => void }>, {
+                const typedChild = child as React.ReactElement<{ onClick?: () => void }>
+                return React.cloneElement(typedChild, {
                   onClick: () => {
                     setIsOpen(false)
-                    child.props.onClick?.()
+                    typedChild.props.onClick?.()
                   },
                 })
               }

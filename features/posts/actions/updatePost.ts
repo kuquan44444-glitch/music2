@@ -1,3 +1,5 @@
+'use server'
+
 import { createClient } from '@/lib/supabase/server'
 import { updatePostSchema, UpdatePostInput } from '@/lib/validations/post.schema'
 
