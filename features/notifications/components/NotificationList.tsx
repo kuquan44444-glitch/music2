@@ -11,7 +11,7 @@ import { useNotifications, useMarkAsRead, useMarkAllAsRead } from '../hooks/useN
 import { NotificationWithSender } from '../actions/notifications'
 
 interface NotificationListProps {
-  notifications: NotificationWithSender[]
+  notifications: any[]
 }
 
 export function NotificationList({ notifications }: NotificationListProps) {
