@@ -80,7 +80,6 @@ export function ForgotPasswordForm() {
               type="email"
               placeholder="email@example.com"
               {...register('email')}
-              error={errors.email?.message}
             />
             {errors.email && (
               <p className="text-xs text-destructive">{errors.email.message}</p>

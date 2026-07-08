@@ -60,7 +60,6 @@ export function SignInForm() {
               type="email"
               placeholder="email@example.com"
               {...register('email')}
-              error={errors.email?.message}
             />
             {errors.email && (
               <p className="text-xs text-destructive">{errors.email.message}</p>
@@ -76,7 +75,6 @@ export function SignInForm() {
               type="password"
               placeholder="••••••••"
               {...register('password')}
-              error={errors.password?.message}
             />
             {errors.password && (
               <p className="text-xs text-destructive">{errors.password.message}</p>

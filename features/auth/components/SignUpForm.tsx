@@ -60,7 +60,6 @@ export function SignUpForm() {
               type="text"
               placeholder="Nguyễn Văn A"
               {...register('fullName')}
-              error={errors.fullName?.message}
             />
             {errors.fullName && (
               <p className="text-xs text-destructive">{errors.fullName.message}</p>
@@ -76,7 +75,6 @@ export function SignUpForm() {
               type="email"
               placeholder="email@example.com"
               {...register('email')}
-              error={errors.email?.message}
             />
             {errors.email && (
               <p className="text-xs text-destructive">{errors.email.message}</p>
@@ -92,7 +90,6 @@ export function SignUpForm() {
               type="password"
               placeholder="••••••••"
               {...register('password')}
-              error={errors.password?.message}
             />
             {errors.password && (
               <p className="text-xs text-destructive">{errors.password.message}</p>
